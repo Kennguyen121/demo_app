@@ -1,0 +1,22 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import connect.Database;
+import entity.KhuVuc;
+
+public class KhuVuc_DAO {
+	public ArrayList<KhuVuc> getKhuVuc() {
+		ArrayList<KhuVuc> dsKhuVuc = new ArrayList<KhuVuc>();
+		try {
+			Database.getInstance();
+			Connection con = Database.getConnection();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 
+	}
+}

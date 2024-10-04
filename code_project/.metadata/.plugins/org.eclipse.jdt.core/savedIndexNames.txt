@@ -1,0 +1,15 @@
+INDEX VERSION 1.134+D:\Study\PTUD\code_project\.metadata\.plugins\org.eclipse.jdt.core
+3455144722.index
+3581163120.index
+12422645.index
+507699858.index
+1009579122.index
+325961408.index
+2002416935.index
+2625756791.index
+3413270776.index
+3926472521.index
+3742650753.index
+2008876325.index
+1865797976.index
+651003968.index
