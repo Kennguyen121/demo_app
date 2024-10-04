@@ -1,0 +1,16 @@
+thống kê đơn hàng
+	+thống kê doanh thu : Total daily, weekly, monthly, and yearly sales.
+	+thống kê sản phẩm đã bán: Sales by product category (e.g., coffee, tea, pastries).
+	+thống kê số đơn hàng bị hủy: trường hợp hủy đơn, trả bill
+	+thống kê lợi nhuận:
+	
+thống kê kho hàng
+- số lượng sản phẩm Keep records of inventory levels for coffee beans, pastries, and other items.
+- sản phẩm sắp hết hàng: Calculate inventory turnover rates.
+- sản phẩm mới nhập:
+
+thống kê nhân viên:
+- số ca làm việc
+- số tiền đã bán:
+- tiền lương theo tháng:
+

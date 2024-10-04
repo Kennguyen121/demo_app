@@ -1,0 +1,9 @@
+sửa phần tổng doanh thu theo format
+sửa tên cột số lượng đã bán
+thêm hàm findTaiKhoanTheoTenDN cho taikhoanDao
+-
+chuyển thongke_dao sang package xuLy
+đổi tên thongke_dao thanh thongke
+sửa phần logo và box của header trong main
+đổi tên phương thức add và delete của nhavien_dao
+cập nhật trang chủ

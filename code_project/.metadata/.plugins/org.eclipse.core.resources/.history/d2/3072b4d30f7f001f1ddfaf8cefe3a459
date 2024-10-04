@@ -1,0 +1,75 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import connect.Database;
+import entity.LoaiMon;
+
+public class LoaiMon_DAO {
+	//Get danh sach loai mon
+	public ArrayList<LoaiMon> getLoaiMon() {
+		ArrayList<LoaiMon> dsLoaiMon = new ArrayList<LoaiMon>();
+		try {
+			Database.getInstance();
+			Connection con = Database.getConnection();
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("select * from LoaiMon");
+			while(rs.next()) {
+				int maLoai = rs.getInt(1);
+				String tenLoai = rs.getString(2);
+				LoaiMon loaiMon = new LoaiMon(maLoai, tenLoai);
+				dsLoaiMon.add(loaiMon);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dsLoaiMon;
+	}
+	//Cap nhat ten cua loai mon
+	public Boolean updateTenLoaiMon(int MaLoai) {
+		Database.getInstance();
+		Connection con = Database.getConnection();
+		PreparedStatement stmt = null;
+		int n = 0;
+		try {
+			stmt = con.prepareStatement("update LoaiMon set tenLoai = ? where MaLoai = ?");
+			stmt.setString(1, "Ten Loai");
+			stmt.setInt(2, MaLoai);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return n > 0;
+	}
+	//Them loai mon moi
+	public boolean addLoaiMon(LoaiMon loaiMon) {
+		Database.getInstance();
+		Connection con = Database.getConnection();
+		PreparedStatement stmt = null;
+		int n = 0;
+		try {
+			stmt = con.prepareStatement("insert into LoaiMon(tenLoai) values(?)");
+			stmt.setString(1, loaiMon.getTenLoai());
+			n = stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return n > 0;
+	}
+}
