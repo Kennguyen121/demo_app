@@ -1,0 +1,36 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import connect.Database;
+import entity.LoaiMon;
+import entity.Mon;
+
+public class Mon_DAO {
+	public ArrayList<Mon> getMon() {
+		ArrayList<Mon> dsMon = new ArrayList<Mon>();
+		try {
+			Database.getInstance();
+			Connection con = Database.getConnection();
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("select * from Mon");
+			while(rs.next()) {
+				int maMon = rs.getInt(1);
+				String tenMon = rs.getString(2);
+				Double donGia = rs.getDouble(3);
+				Integer soLuong = rs.getInt(4);
+				Integer maLoai = rs.getInt(5);
+				LoaiMon lMon = new LoaiMon_DAO().findLoaiMonTheoMa(maLoai);
+				Mon mon = new Mon(maMon, tenMon, donGia, soLuong, lMon);
+				dsMon.add(mon);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dsMon;
+	}
+}

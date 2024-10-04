@@ -1,0 +1,32 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import connect.Database;
+import entity.LoaiMon;
+
+public class LoaiMon_DAO {
+	public ArrayList<LoaiMon> getLoaiMon() {
+		ArrayList<LoaiMon> dsLoaiMon = new ArrayList<LoaiMon>();
+		try {
+			Database.getInstance();
+			Connection con = Database.getConnection();
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("select * from LoaiMon");
+			while(rs.next()) {
+				int maLoai = rs.getInt(1);
+				String tenLoai = rs.getString(2);
+				LoaiMon loaiMon = new LoaiMon(maLoai, tenLoai);
+				dsLoaiMon.add(loaiMon);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dsLoaiMon;
+	}
+	
+}

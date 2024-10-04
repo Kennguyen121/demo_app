@@ -1,0 +1,10 @@
+package dao;
+
+import java.util.ArrayList;
+
+import entity.LoaiMon;
+
+public class LoaiMon_DAO {
+	public ArrayList<LoaiMon> dsLoaiMon = new ArrayList<LoaiMon>();
+	
+}
