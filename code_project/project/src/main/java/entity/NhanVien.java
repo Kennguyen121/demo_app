@@ -8,25 +8,43 @@ public class NhanVien {
 	private String soDienThoai;
 	private String email;
 	private String chucVu;
-	
+	private boolean trangThaiLamViec;
 	// Constructor
-	public NhanVien(int maNV, String hoTen, String soDienThoai, String email, String chucVu) {
+
+	public NhanVien(String hoTen, String soDienThoai, String email, String chucVu) {
 		super();
-		this.maNV = maNV;
 		this.hoTen = hoTen;
 		this.soDienThoai = soDienThoai;
 		this.email = email;
 		this.chucVu = chucVu;
 	}
 	
+	public NhanVien(int maNV, String hoTen, String soDienThoai, String email, String chucVu, boolean trangThaiLamViec) {
+		super();
+		this.maNV = maNV;
+		this.hoTen = hoTen;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.chucVu = chucVu;
+		this.trangThaiLamViec = trangThaiLamViec;
+	}
+
 	public NhanVien() {
 		super();
 	}
 
 	// Getters and Setters
+
+	public int getMaNV() {
+		return maNV;
+	}
+	public void setMaNV(int maNV) {
+		this.maNV = maNV;
+	}
 	public String getHoTen() {
 		return hoTen;
 	}
+
 
 	public void setHoTen(String hoTen) {
 		this.hoTen = hoTen;
@@ -56,8 +74,12 @@ public class NhanVien {
 		this.chucVu = chucVu;
 	}
 
-	public int getMaNV() {
-		return maNV;
+	public boolean isTrangThaiLamViec() {
+		return trangThaiLamViec;
+	}
+
+	public void setTrangThaiLamViec(boolean trangThaiLamViec) {
+		this.trangThaiLamViec = trangThaiLamViec;
 	}
 
 	// toString
