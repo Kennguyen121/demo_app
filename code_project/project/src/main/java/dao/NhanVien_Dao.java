@@ -39,6 +39,7 @@ public class NhanVien_Dao {
 		
 		return ds;
 	}
+	// đã xong
 	public boolean capNhatNV(NhanVien nv) {
 		int n =0;
 		PreparedStatement stmt=null;
@@ -98,13 +99,14 @@ public class NhanVien_Dao {
 		}
 		return n > 0;
 	}
+	
 	public NhanVien timNhanVien(int maNhanVien) {
 		NhanVien nv =null;
 		PreparedStatement stmt = null;
 		try {
         	Database.getInstance();
         	Connection con= Database.getConnection(); 
-        	stmt = con.prepareStatement("SELECT * FROM NhanVien WHERE MaNhanVien=?");
+        	stmt = con.prepareStatement("SELECT * FROM NhanVien WHERE MaNV=?");
 			stmt.setInt(1, maNhanVien);
         	ResultSet rs = stmt.executeQuery();
         	//Duyet tren ket qua tra ve
